@@ -1,0 +1,493 @@
+{
+    "timeMarchControl": {
+        "dtImplicit": 1e+100,
+        "dtImplicitMin": 0.0,
+        "nTimeStep": 1,
+        "steadyQuit": true,
+        "useRestart": false,
+        "useImplicitPP": false,
+        "rhsFPPMode": 0,
+        "rhsFPPScale": 1.0,
+        "rhsFPPRelax": 0.9,
+        "incrementPPRelax": 0.9,
+        "odeCode": 1,
+        "tEnd": 3e+200,
+        "odeSetting1": 0.0,
+        "odeSetting2": 0.0,
+        "odeSetting3": 0.0,
+        "odeSetting4": 0.0,
+        "partitionMeshOnly": false,
+        "dtIncreaseLimit": 2.0,
+        "dtIncreaseAfterCount": 0,
+        "dtCFLLimitScale": 1e+100,
+        "dtPPLimitRelax": 0.8,
+        "useDtPPLimit": false,
+        "dtPPLimitScale": 1.0
+    },
+    "implicitReconstructionControl": {
+        "nInternalRecStep": 1,
+        "zeroGrads": false,
+        "recLinearScheme": 0,
+        "nGmresSpace": 5,
+        "nGmresIter": 1,
+        "gmresRecScale": 1,
+        "fpcgResetScheme": 0,
+        "fpcgResetThres": 0.6,
+        "fpcgResetReport": 1,
+        "fpcgMaxPHistory": 20,
+        "recThreshold": 1e-05,
+        "nRecConsolCheck": 10,
+        "nRecMultiplyForZeroedGrad": 1,
+        "storeRecInc": true,
+        "dampRecIncDTau": false,
+        "zeroRecForSteps": 0,
+        "zeroRecForStepsInternal": 0
+    },
+    "outputControl": {
+        "nConsoleCheck": 1,
+        "nConsoleCheckInternal": 10,
+        "consoleOutputMode": 1,
+        "consoleOutputEveryFix": 0,
+        "consoleMainOutputFormat": [
+            "=== Step {termBold}[{step:4d}]   ",
+            "res {termBold}{termRed}{resRel:.3e}{termReset}   ",
+            "t,dT,dTaumin,CFL,nFix {termGreen}[{tSimu:.3e},{curDtImplicit:.3e},{curDtMin:.3e},{CFLNow:.3e},[alphaInc({nLimInc},{alphaMinInc}), betaRec({nLimBeta},{minBeta}), alphaRes({nLimAlpha},{minAlpha})]]{termReset}   ",
+            "Time[{telapsed:.3f}] recTime[{trec:.3f}] rhsTime[{trhs:.3f}] commTime[{tcomm:.3f}] limTime[{tLim:.3f}] limTimeA[{tLimiterA:.3f}] limTimeB[{tLimiterB:.3f}]"
+        ],
+        "consoleMainOutputFormatInternal": [
+            "\t Internal === Step [{step:4d},{iStep:2d},{iter:4d}]   ",
+            "res {termRed}{resRel:.15e}{termReset}   ",
+            "t,dT,dTaumin,CFL,nFix {termGreen}[{tSimu:.3e},{curDtImplicit:.3e},{curDtMin:.3e},{CFLNow:.3e},[alphaInc({nLimInc},{alphaMinInc:.3g}), betaRec({nLimBeta},{minBeta:.3g}), alphaRes({nLimAlpha},{minAlpha:.3g})]]{termReset}   ",
+            "Time[{telapsedM:.3f}] recTime[{trecM:.3f}] rhsTime[{trhsM:.3f}] commTime[{tcommM:.3f}] limTime[{tLimM:.3f}] limTimeA[{tLimiterA:.3f}] limTimeB[{tLimiterB:.3f}]"
+        ],
+        "logfileOutputTitles": [
+            "step",
+            "iStep",
+            "iter",
+            "tSimu",
+            "res",
+            "curDtImplicit",
+            "curDtMin",
+            "CFLNow",
+            "nLimInc",
+            "alphaMinInc",
+            "nLimBeta",
+            "minBeta",
+            "nLimAlpha",
+            "minAlpha",
+            "tWall",
+            "telapsed",
+            "trec",
+            "trhs",
+            "tcomm",
+            "tLim",
+            "tLimiterA",
+            "tLimiterB",
+            "fluxWall",
+            "CL",
+            "CD",
+            "AoA"
+        ],
+        "nPrecisionLog": 10,
+        "dataOutAtInit": true,
+        "nDataOut": 10,
+        "nDataOutC": 100,
+        "nDataOutInternal": 1000000000,
+        "nDataOutCInternal": 50,
+        "nRestartOut": 100,
+        "nRestartOutC": 10,
+        "nRestartOutInternal": 1000000000,
+        "nRestartOutCInternal": 200,
+        "nTimeAverageOut": 2147483647,
+        "nTimeAverageOutC": 2147483647,
+        "tDataOut": 3e+200,
+        "lazyCoverDataOutput": false,
+        "useCollectiveTimer": false
+    },
+    "implicitCFLControl": {
+        "CFL": 50.0,
+        "nForceLocalStartStep": 2147483647,
+        "nCFLRampStart": 2147483647,
+        "nCFLRampLength": 2147483647,
+        "CFLRampEnd": 0.0,
+        "useLocalDt": true,
+        "nSmoothDTau": 0,
+        "RANSRelax": 1.0
+    },
+    "convergenceControl": {
+        "nTimeStepInternal": 10000,
+        "nTimeStepInternalMin": 5,
+        "nAnchorUpdate": 1,
+        "nAnchorUpdateStart": 0,
+        "rhsThresholdInternal": 1e-08,
+        "res_base": 0.0,
+        "useVolWiseResidual": true
+    },
+    "dataIOControl": {
+        "uniqueStamps": false,
+        "meshRotZ": 0.0,
+        "meshScale": 1.0,
+        "meshElevation": 0,
+        "meshElevationInternalSmoother": 0,
+        "meshElevationIter": 1000,
+        "meshElevationRBFRadius": 1.0,
+        "meshElevationRBFPower": 1.0,
+        "meshElevationRBFKernel": "InversedDistanceA1",
+        "meshElevationMaxIncludedAngle": 15.0,
+        "meshElevationNSearch": 30,
+        "meshElevationRefDWall": 0.001,
+        "meshElevationBoundaryMode": 0,
+        "meshDirectBisect": 0,
+        "meshReorderCells": 1,
+        "meshFormat": 0,
+        "meshPartitionOptions": {
+            "metisType": "KWAY",
+            "metisUfactor": 20,
+            "metisSeed": 0,
+            "edgeWeightMethod": 0,
+            "metisNcuts": 3
+        },
+        "meshFile": "../data/mesh/NACA0012_H2.cgns",
+        "outPltName": "../data/out/NACA0012_H2-MGtest_2_VRes_AOA15.dir/gmres5x1ilu-4ilu",
+        "outLogName": "",
+        "outRestartName": "",
+        "outPltMode": 0,
+        "readMeshMode": 0,
+        "outPltTecplotFormat": true,
+        "outPltVTKFormat": false,
+        "outPltVTKHDFFormat": false,
+        "outAtPointData": true,
+        "outAtCellData": true,
+        "nASCIIPrecision": 5,
+        "vtuFloatEncodeMode": "binary",
+        "hdfChunkSize": 32768,
+        "hdfDeflateLevel": 0,
+        "outVolumeData": true,
+        "outBndData": true,
+        "outCellScalarNames": [
+            "dWall"
+        ],
+        "serializerSaveURec": false,
+        "allowAsyncPrintData": false,
+        "rectifyNearPlane": 0,
+        "rectifyNearPlaneThres": 1e-10,
+        "restartWriter": {
+            "type": "H5",
+            "hdfDeflateLevel": 0,
+            "hdfChunkSize": 0,
+            "hdfCollOnMeta": true,
+            "hdfCollOnData": false,
+            "jsonBinaryDeflateLevel": 5,
+            "jsonUseCodecOnUInt8": true
+        },
+        "meshPartitionedWriter": {
+            "type": "H5",
+            "hdfDeflateLevel": 0,
+            "hdfChunkSize": 0,
+            "hdfCollOnMeta": true,
+            "hdfCollOnData": false,
+            "jsonBinaryDeflateLevel": 9,
+            "jsonUseCodecOnUInt8": true
+        },
+        "meshPartitionedReaderType": "H5"
+    },
+    "boundaryDefinition": {
+        "PeriodicTranslation1": [
+            1.0,
+            0.0,
+            0.0
+        ],
+        "PeriodicTranslation2": [
+            0.0,
+            1.0,
+            0.0
+        ],
+        "PeriodicTranslation3": [
+            0.0,
+            0.0,
+            1.0
+        ],
+        "PeriodicRotationCent1": [
+            0.0,
+            0.0,
+            0.0
+        ],
+        "PeriodicRotationCent2": [
+            0.0,
+            0.0,
+            0.0
+        ],
+        "PeriodicRotationCent3": [
+            0.0,
+            0.0,
+            0.0
+        ],
+        "PeriodicRotationEulerAngles1": [
+            0.0,
+            0.0,
+            0.0
+        ],
+        "PeriodicRotationEulerAngles2": [
+            0.0,
+            0.0,
+            0.0
+        ],
+        "PeriodicRotationEulerAngles3": [
+            0.0,
+            0.0,
+            0.0
+        ],
+        "periodicTolerance": 1e-08
+    },
+    "limiterControl": {
+        "useLimiter": false,
+        "usePPRecLimiter": true,
+        "useViscousLimited": true,
+        "smoothIndicatorProcedure": 0,
+        "limiterProcedure": 1,
+        "nPartialLimiterStart": 1000000,
+        "nPartialLimiterStartLocal": 1000000,
+        "preserveLimited": false,
+        "ppRecLimiterCompressToMean": true
+    },
+    "linearSolverControl": {
+        "jacobiCode": 2,
+        "sgsIter": 0,
+        "sgsWithRec": 0,
+        "gmresCode": 1,
+        "gmresScale": 2,
+        "nGmresSpace": 5,
+        "nGmresIter": 1,
+        "nSgsConsoleCheck": 100,
+        "nGmresConsoleCheck": 100,
+        "initWithLastURecInc": false,
+        "multiGridLP": 1,
+        "multiGridLPInnerNIter": 4,
+        "multiGridLPStartIter": 0,
+        "multiGridLPInnerNSee": 100,
+        "coarseGridLinearSolverControlList": {
+            "1": {
+                "jacobiCode": 2,
+                "sgsIter": 0,
+                "gmresCode": 0,
+                "gmresScale": 0,
+                "nGmresIter": 2,
+                "nSgsConsoleCheck": 100,
+                "nGmresConsoleCheck": 100,
+                "multiGridNIter": 4,
+                "multiGridNIterPost": 0,
+                "centralSmoothInputResidual": 0
+            },
+            "2": {
+                "jacobiCode": 2,
+                "sgsIter": 0,
+                "gmresCode": 0,
+                "gmresScale": 0,
+                "nGmresIter": 2,
+                "nSgsConsoleCheck": 100,
+                "nGmresConsoleCheck": 100,
+                "multiGridNIter": 4,
+                "multiGridNIterPost": 0,
+                "centralSmoothInputResidual": 0
+            }
+        },
+        "directPrecControl": {
+            "useDirectPrec": true,
+            "iluCode": 2,
+            "orderingCode": 4
+        }
+    },
+    "timeAverageControl": {
+        "enabled": false
+    },
+    "others": {
+        "nFreezePassiveInner": 0
+    },
+    "restartState": {
+        "iStep": 1,
+        "iStepInternal": 10000,
+        "odeCodePrev": -1,
+        "lastRestartFile": "../data/out/NACA0012_H2-MGtest_2_VRes_AOA15.dir/gmres5x1ilu-4ilu__C_p16.restart.dnds.h5",
+        "otherRestartFile": "",
+        "otherRestartStoreDim": [
+            0
+        ]
+    },
+    "eulerSettings": {
+        "useScalarJacobian": false,
+        "useRoeJacobian": false,
+        "noRsOnWall": false,
+        "noGRPOnWall": false,
+        "ignoreSourceTerm": false,
+        "direct2ndRecMethod": 1,
+        "specialBuiltinInitializer": 0,
+        "uRecAlphaCompressPower": 1.0,
+        "uRecBetaCompressPower": 1.0,
+        "forceVolURecBeta": true,
+        "ppEpsIsRelaxed": false,
+        "RANSBottomLimit": 0.01,
+        "riemannSolverType": "Roe_M1",
+        "riemannSolverTypeAux": "UnknownRS",
+        "riemannSolverTypeWall": "UnknownRS",
+        "rsMeanValueEig": 0,
+        "rsRotateScheme": 0,
+        "minWallDist": 1e-12,
+        "wallDistExection": 5,
+        "wallDistRefineMax": 0.01,
+        "wallDistScheme": 1,
+        "wallDistCellLoadSize": 32768,
+        "wallDistIter": 1000,
+        "wallDistLinSolver": 0,
+        "wallDistResTol": 0.0001,
+        "wallDistIterStart": 100,
+        "wallDistPoissonP": 8,
+        "wallDistDTauScale": 100.0,
+        "wallDistNJacobiSweep": 10,
+        "SADESScale": 3e+200,
+        "ransModel": "RANS_SA",
+        "ransUseQCR": 0,
+        "ransSARotCorrection": 1,
+        "ransEigScheme": 0,
+        "ransForce2nd": 0,
+        "ransSource2nd": 0,
+        "usePrimGradInVisFlux": 0,
+        "useSourceGradFixGG": 0,
+        "nCentralSmoothStep": 0,
+        "centralSmoothEps": 0.5,
+        "constMassForce": [
+            0.0,
+            0.0,
+            0.0
+        ],
+        "frameConstRotation": {
+            "enabled": false,
+            "axis": [
+                0.0,
+                0.0,
+                1.0
+            ],
+            "center": [
+                0.0,
+                0.0,
+                0.0
+            ],
+            "rpm": 0.0
+        },
+        "cLDriverSettings": {
+            "AOAInit": 15.0,
+            "AOAAxis": "z",
+            "CL0Axis": "y",
+            "CD0Axis": "x",
+            "refArea": 1.0,
+            "refDynamicPressure": 0.5,
+            "targetCL": 1.0,
+            "CLIncrementRelax": 0.25,
+            "thresholdTargetRatio": 0.5,
+            "nIterStartDrive": 2147483647,
+            "nIterConvergeMin": 100,
+            "CLconvergeThreshold": 0.001,
+            "CLconvergeWindow": 10
+        },
+        "cLDriverBCNames": [
+            "WALL"
+        ],
+        "farFieldStaticValue": [
+            1.0,
+            1.0,
+            0.0,
+            0.0,
+            79.8650793650794,
+            3.0
+        ],
+        "boxInitializers": [],
+        "planeInitializers": [],
+        "exprtkInitializers": [],
+        "idealGasProperty": {
+            "gamma": 1.4,
+            "Rgas": 0.116221972344982,
+            "muGas": 3.472222222222222e-07,
+            "prGas": 0.72,
+            "TRef": 273.15,
+            "CSutherland": 110.4,
+            "muModel": 1
+        },
+        "Comment": {
+            "M0.15": [
+                1,
+                1,
+                0,
+                0,
+                79.8650793650794,
+                1.3,
+                {
+                    "Rgas": 0.116221972344982
+                }
+            ],
+            "M0.8": [
+                1,
+                1,
+                0,
+                0,
+                2.971576866040534,
+                1.3,
+                {
+                    "Rgas": 0.003338277043445
+                }
+            ]
+        }
+    },
+    "vfvSettings": {
+        "maxOrder": 3,
+        "intOrder": 5,
+        "intOrderVR": 5,
+        "cacheDiffBase": true,
+        "cacheDiffBaseSize": 3,
+        "jacobiRelax": 1.0,
+        "SORInstead": false,
+        "smoothThreshold": 0.001,
+        "WBAP_nStd": 10.0,
+        "normWBAP": false,
+        "limiterBiwayAlter": 0,
+        "subs2ndOrder": 1,
+        "subs2ndOrderGGScheme": 0,
+        "ignoreMeshGeometryDeficiency": false,
+        "nIterCellSmoothScale": 15,
+        "svdTolerance": 0.0,
+        "baseSettings": {
+            "localOrientation": true,
+            "anisotropicLengths": false
+        },
+        "functionalSettings": {
+            "scaleType": "BaryDiff",
+            "scaleMultiplier": 1.0,
+            "dirWeightScheme": "HQM_OPT",
+            "dirWeightCombPowV": 1,
+            "manualDirWeights": [
+                1.0,
+                1.0,
+                0.5,
+                0.16666666666666666,
+                0.041666666666666664
+            ],
+            "geomWeightScheme": "HQM_SD",
+            "geomWeightPower": 0.5,
+            "geomWeightPower1": 0.0,
+            "geomWeightPower2": 0.0,
+            "useAnisotropicFunctional": false,
+            "tanWeightScale": 1.0,
+            "anisotropicType": "InertiaCoord",
+            "inertiaWeightPower": 1.0,
+            "geomWeightBias": 1.0,
+            "greenGauss1Weight": 0.0,
+            "greenGauss1Bias": 0.5,
+            "greenGauss1Penalty": 0.0,
+            "greenGaussSpacial": 0
+        },
+        "bcWeight": 1.0
+    },
+    "bcSettings": [],
+    "bcNameMapping": {},
+    "___Compile_Time_Defines": "DNDS_Defines DNDS_Macros DNDS_Experimentals  USE_ENTROPY_FIXED_LAMBDA_IN_SA  USE_FIX_ZERO_SA_NUT_AT_WALL  USE_FIRST_ORDER_VISCOUS_WALL_DELTA_IN_VR_WEIGHT  USE_FIRST_ORDER_WALL_DIST  USE_NS_SA_NEGATIVE_MODEL  USE_ABS_VELO_IN_ROTATION  (no NDEBUG)  NINSERT ",
+    "___Runtime_PartitionNumber": 16,
+    "___Commit_ID": "ce71614e8651c2c738e8a31304f9b46fb05cc0f1"
+}

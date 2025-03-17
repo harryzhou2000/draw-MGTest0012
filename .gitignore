@@ -1,0 +1,7 @@
+*__pycache__
+*.plt
+*.h5
+*.png
+*restart.dir
+*.log
+*stdout.txt
