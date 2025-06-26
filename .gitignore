@@ -2,6 +2,9 @@
 *.plt
 *.h5
 *.png
+*.pdf
+*.svg
 *restart.dir
 *.log
 *stdout.txt
+*.json
